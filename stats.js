@@ -1,5 +1,5 @@
 const os = require('os')
-
+const log = require('./logger.js')
 setInterval(()=>{
   const { freemem, totalmem } = os
   const total = parseInt(totalmem()/1024/1024)
@@ -13,4 +13,6 @@ setInterval(()=>{
   console.clear()
   console.log('=====STATUS=====')
   console.table(stat)
+
+  log(`${JSON.stringify(stat)}\n`)
 },1000)
